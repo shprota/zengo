@@ -8,25 +8,12 @@ export class CoinHistoryController {
   constructor(private readonly coinService: CoinHistoryService) {}
 
   @Get('/')
-  @ApiQuery({
-    description: 'List of currencies',
-    name: 'coins',
-    example: 'BTC,ETH,BNB,DOGE',
-    required: true,
-    allowEmptyValue: false,
-  })
-  @ApiQuery({
-    description: 'Timestamp of the comparison point (epoch seconds)',
-    name: 'date',
-    example: 1452680400,
-    required: true,
-    allowEmptyValue: false,
-  })
   getHistory(@Query() params: HistoryRequestDto) {
     const req: HistoryRequestDto = {
       coins: params.coins,
       date: params.date,
     };
+    console.log(req);
     return this.coinService.getCoinsChange(req);
   }
 }

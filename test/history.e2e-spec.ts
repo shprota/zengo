@@ -21,7 +21,7 @@ describe('CoinHistoryController (e2e)', () => {
       .get('/history?date=')
       .expect(400)
       .expect(
-        '{"statusCode":400,"message":["coins should not be empty","coins must be a string","date must be a positive number"],"error":"Bad Request"}',
+        '{"statusCode":400,"message":["coins should not be empty","coins must be a string","date must be a valid ISO 8601 date string","date should not be empty"],"error":"Bad Request"}',
       );
   });
 });
