@@ -13,7 +13,6 @@ export class CoinHistoryController {
       coins: params.coins,
       date: params.date,
     };
-    console.log(req);
     return this.coinService.getCoinsChange(req);
   }
 }
